@@ -1,23 +1,22 @@
-import React, {Component } from 'react';
+import React from 'react';
 
-class ManillaFighters extends Component{
-    render(){
-        const {manillaFighters} = this.props; // destructuring
-        const manillaFighterList = manillaFighters.map(manillaFighter => {
-            return (
-                <div className="manillaFighter" key={manillaFighter.id}>
-                    <div>Name: {manillaFighter.name}</div>
-                    <div>Age: {manillaFighter.age}</div>
-                    <div>Belt: {manillaFighter.belt}</div>
-                </div>
-            )
-        })
-        return(
-            <div className="manillaFighter-List">
-                {manillaFighterList}
+
+//stateless UI components:
+const ManillaFighters = ({manillaFighters}) => {
+    const manillaFighterList = manillaFighters.map(manillaFighter => {
+        return manillaFighter.age < 40 ? (
+            <div className="manillaFighter" key={manillaFighter.id}>
+                <div>Name: {manillaFighter.name}</div>
+                <div>Age: {manillaFighter.age}</div>
+                <div>Belt: {manillaFighter.belt}</div>
             </div>
-        )
-    }
+        ) : null;
+    });
+    return(
+        <div className="manillaFighter-List">
+            {manillaFighterList}
+        </div>
+    )
 }
 
 export default ManillaFighters

@@ -1,6 +1,8 @@
 import React, {Component } from 'react';
 import ManillaFighters from './Manilla.js';
 
+
+//container class-based components
 class App extends Component {
   state = {
     manillaFighters : [
