@@ -20,12 +20,20 @@ class App extends Component {
        manillaFighters: manillaFighters // new property is equal to the new array created.
     })
   }
+  deleteFighter = (id) => {
+    let manillaFighters = this.state.manillaFighters.filter(manillaFighter => {
+      return manillaFighter.id !== id;
+    });
+    this.setState({
+      manillaFighters: manillaFighters
+    })
+  }
   render () {
     return (
       <div className="App">
         <h1>My first React app!</h1>
         <p>Welcome!</p>
-        <ManillaFighters manillaFighters={this.state.manillaFighters}/>
+        <ManillaFighters deleteFighter={this.deleteFighter} manillaFighters={this.state.manillaFighters}/>
         <AddFighter addFighter={this.addFighter}/>        
       </div>
     );
