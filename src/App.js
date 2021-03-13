@@ -28,6 +28,13 @@ class App extends Component {
       manillaFighters: manillaFighters
     })
   }
+  componentDidMount(){
+    console.log('Component mounted!');
+  }
+  componentDidUpdate(prevProps, prevState){
+    console.log('Component updated');
+    console.log(prevProps, prevState);
+  }
   render () {
     return (
       <div className="App">
