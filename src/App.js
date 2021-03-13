@@ -1,7 +1,11 @@
 import React, {Component } from 'react';
 import ManillaFighters from './Manilla.js';
 import AddFighter from './AddFighter.js';
-
+import NavBar from './components/NavBar.js'
+import {BrowserRouter, Route} from 'react-router-dom';
+import Home from './components/Home.js';
+import Contact from './components/Contact.js';
+import About from './components/About.js';
 
 //container class-based components
 class App extends Component {
@@ -37,12 +41,16 @@ class App extends Component {
   }
   render () {
     return (
-      <div className="App">
-        <h1>My first React app!</h1>
-        <p>Welcome!</p>
-        <ManillaFighters deleteFighter={this.deleteFighter} manillaFighters={this.state.manillaFighters}/>
-        <AddFighter addFighter={this.addFighter}/>        
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <NavBar />
+          <Route exact path = '/' component={Home}/>
+          <Route path = '/about' component={About}/>
+          <Route path = '/contact' component={Contact}/>
+          <ManillaFighters deleteFighter={this.deleteFighter} manillaFighters={this.state.manillaFighters}/>
+          <AddFighter addFighter={this.addFighter}/>
+        </div>
+      </BrowserRouter>
     );
   }
 }
