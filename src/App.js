@@ -2,7 +2,7 @@ import React, {Component } from 'react';
 import ManillaFighters from './Manilla.js';
 import AddFighter from './AddFighter.js';
 import NavBar from './components/NavBar.js'
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './components/Home.js';
 import Contact from './components/Contact.js';
 import About from './components/About.js';
@@ -45,10 +45,12 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <NavBar />
-          <Route exact path = '/' component={Home}/>
-          <Route path = '/about' component={About}/>
-          <Route path = '/contact' component={Contact}/>
-          <Route path = '/:post_id' component={Post}/>
+          <Switch> 
+            <Route exact path = '/' component={Home}/>
+            <Route path = '/about' component={About}/>
+            <Route path = '/contact' component={Contact}/>
+            <Route path = '/:post_id' component={Post}/>
+          </Switch>
           <ManillaFighters deleteFighter={this.deleteFighter} manillaFighters={this.state.manillaFighters}/>
           <AddFighter addFighter={this.addFighter}/>
         </div>
