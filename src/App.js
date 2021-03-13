@@ -6,6 +6,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Home from './components/Home.js';
 import Contact from './components/Contact.js';
 import About from './components/About.js';
+import Post from './components/Post.js';
 
 //container class-based components
 class App extends Component {
@@ -47,6 +48,7 @@ class App extends Component {
           <Route exact path = '/' component={Home}/>
           <Route path = '/about' component={About}/>
           <Route path = '/contact' component={Contact}/>
+          <Route path = '/:post_id' component={Post}/>
           <ManillaFighters deleteFighter={this.deleteFighter} manillaFighters={this.state.manillaFighters}/>
           <AddFighter addFighter={this.addFighter}/>
         </div>
